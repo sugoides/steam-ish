@@ -25,8 +25,6 @@ git clone https://github.com/sugoides/steam-ish
 npm install
 ```
 3. Create an `.env` file in the project root (example below)
-
-Example `.env`
 ```
 PORT=3000
 SESSION_SECRET=change_this_secret
