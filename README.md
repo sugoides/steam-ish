@@ -25,9 +25,9 @@ A small Express + EJS app that displays a Steam user profile, friends and games 
 
 Example `.env`
 ```
-STEAM_API_KEY=your_steam_api_key_here
-SESSION_SECRET=change_this_secret
 PORT=3000
+SESSION_SECRET=change_this_secret
+STEAM_API_KEY=your_steam_api_key_here
 ```
 
 ## Run
