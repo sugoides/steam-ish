@@ -1,0 +1,8 @@
+<div class="signin">
+  <h1>Steam-ish</h1>
+  <% if (!user) { %>
+    <a class="btn btn-primary" href="/auth/steam">Sign in with Steam</a>
+  <% } else { %>
+    <a class="btn btn-primary" href="/profile/me">View my profile</a>
+  <% } %>
+</div>

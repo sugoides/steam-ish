@@ -1,0 +1,18 @@
+<!-- src/views/partials/header.ejs -->
+<header class="header">
+  <div class="brand">
+    <a href="/" class="brand-link">Steam-ish</a>
+  </div>
+
+  <% if (user) { %>
+    <nav class="nav-main" aria-label="Main navigation">
+      <a class="nav-item" href="/profile/me#friends">Friends</a>
+      <a class="nav-item" href="/profile/me#recentGames">Games</a>
+    </nav>
+
+    <nav class="nav-user">
+      <span class="user"><%= user.displayName %></span>
+      <a href="/auth/logout" class="nav-link">Logout</a>
+    </nav>
+  <% } %>
+</header>

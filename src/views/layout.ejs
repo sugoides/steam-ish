@@ -1,0 +1,23 @@
+<!-- src/views/layout.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="https://steamcommunity.com/favicon.ico" />
+  <meta charset="utf-8" />
+  <!-- Mobile viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Steam Profile</title>
+  <link rel="stylesheet" href="/css/steam.css" />
+</head>
+<body class="theme-dark <%= user ? 'has-header' : '' %>">
+  <% if (user) { %>
+    <%- include('partials/header', { user }) %>
+  <% } %>
+   <div class="container">
+     <!-- sidebar removed — main content is full width -->
+     <main class="content">
+       <%- body %>
+     </main>
+    </div>
+  </body>
+</html>

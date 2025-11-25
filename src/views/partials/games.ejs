@@ -1,0 +1,30 @@
+<!-- src/views/partials/games.ejs -->
+ <!-- Recently played games (inline example) -->
+<section  id="recentGames">
+  <h3>Recently Played</h3>
+  <div class="grid grid-games">
+    <% recentGames.forEach(g => { %>
+      <div class="card game-card">
+        <img src="<%= g.header_image %>" alt="<%= g.name %>" />
+        <div class="card-body">
+          <div class="title"><a href="<%= g.store_url %>" target="_blank"><%= g.name %></a></div>
+          <div class="meta"><%= g.playtime_2weeks_hours %> h (last 2 weeks)</div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</section>
+<section id="games">
+  <h3>Owned Games</h3>
+  <div class="grid grid-games">
+    <% games.forEach(game => { %>
+      <a class="card game-card card-link" href="<%= game.store_url %>" target="_blank" rel="noopener noreferrer">
+        <img src="<%= game.header_image || game.img_logo_url || ('https://cdn.cloudflare.steamstatic.com/steam/apps/' + game.appid + '/header.jpg') %>" alt="<%= game.name || 'Game' %>" />
+        <div class="card-body">
+          <div class="title"><%= game.name %></div>
+          <div class="meta">Total playtime: <%= game.playtime_hours %> h</div>
+        </div>
+      </a>
+    <% }) %>
+  </div>
+</section>

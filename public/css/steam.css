@@ -1,0 +1,277 @@
+/* public/css/steam.css */
+:root{
+  --bg: #0f242f;
+  --panel: #0b1b23;
+  --card: #11232b;
+  --muted: #9fb4c3;
+  --accent: #66c0f4;
+  --text: #d6e6ef;
+  --glass: rgba(255,255,255,0.03);
+  --shadow: 0 6px 18px rgba(2,8,15,0.6);
+  --radius: 12px;
+  --gap: 14px;
+  --header-offset: 80px; /* adjust to match your header height + gap */
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+html { scroll-behavior: smooth; }
+body.theme-dark{
+  margin:0;
+  background: var(--bg);
+  color:var(--text);
+  font-family: Inter, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.4;
+  padding:12px;
+}
+
+/* Layout */
+.header{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 20px;
+  background: var(--panel);
+  /* when fixed we don't want rounded corners at the edges */
+  border-radius:0;
+  box-shadow: 0 6px 20px rgba(2,8,15,0.6);
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:1000;
+  width:100%;
+}
+.brand{font-weight:700;color:var(--accent);font-size:1.1rem}
+.brand-link{color:var(--text);text-decoration:none;font-weight:700}
+.nav-main{display:flex;gap:18px;align-items:center}
+.nav-main .nav-item{color:var(--text);text-decoration:none;font-weight:700;padding:8px 10px;border-radius:6px;opacity:0.9}
+.nav-main .nav-item:hover{background:rgba(255,255,255,0.02);color:var(--accent)}
+.nav-user{display:flex;gap:10px;align-items:center}
+.nav-user .nav-link{color:var(--muted);text-decoration:none;padding:6px}
+.nav-user .user{color:var(--muted);font-size:0.95rem}
+
+/* default container when there is no fixed header (sign-in page) */
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:20px;
+  width:calc(100% - 24px);
+}
+
+/* only apply extra top offset when header is present */
+.has-header .container{
+  padding-top: calc(20px + 64px);
+}
+
+/* center and constrain main content panel */
+.content {
+  max-width: 980px;
+  margin: 36px auto; /* centers horizontally and gives top spacing */
+  /* preserve existing styles */
+  background: linear-gradient(180deg, var(--panel), rgba(11,27,35,0.85));
+  padding: 16px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.layout{
+  display:block; /* kept for backward compatibility if used elsewhere */
+}
+
+/* Sidebar */
+.sidebar{ display:none; }
+
+/* Content */
+.content{background:linear-gradient(180deg,var(--panel),rgba(11,27,35,0.85));padding:16px;border-radius:var(--radius);box-shadow:var(--shadow)}
+.profile-header{display:flex;gap:16px;align-items:center;margin-bottom:18px;flex-wrap:wrap}
+.profile-header .profile-link{
+  display:flex;
+  gap:16px;
+  align-items:center;
+  text-decoration:none;
+  color:inherit;
+  padding:8px 10px;
+  border-radius:10px;
+  transition: background .12s ease, transform .12s ease;
+}
+.profile-header .profile-link:hover{
+  background: rgba(255,255,255,0.02);
+  transform: translateY(-2px);
+}
+.profile-header .avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.06);box-shadow:0 6px 18px rgba(2,8,15,0.6)}
+.profile-header h2{margin:0;font-size:1.4rem;color:var(--accent);/* clickable name color */}
+.profile-header .muted{margin:6px 0 0;color:var(--muted);font-size:0.95rem}
+.profile-link .visibility{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:0.95rem;
+}
+
+/* profile header stats (right side counts) */
+.profile-stats{
+  margin-left:auto;               /* push stats to the right of the header */
+  display:flex;
+  gap:20px;
+  align-items:center;
+}
+.profile-stats .stat{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-decoration:none;
+  color:var(--muted);
+  padding:6px 10px;
+  border-radius:8px;
+  transition: background .12s ease, transform .12s ease;
+}
+.profile-stats .stat:hover{
+  background: rgba(255,255,255,0.02);
+  transform: translateY(-2px);
+}
+.profile-stats .stat .count{
+  font-weight:700;
+  color:var(--accent);
+  font-size:1.2rem;
+  line-height:1;
+}
+.profile-stats .stat .label{
+  font-size:0.85rem;
+  margin-top:4px;
+  color:var(--muted);
+}
+
+/* Cards & grids */
+.grid{display:grid;gap:12px}
+.grid-friends{grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));}
+.grid-games{grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));}
+
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  border-radius:10px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.03);
+  transition:transform .18s ease, box-shadow .18s ease;
+  box-shadow: 0 4px 14px rgba(2,8,15,0.45);
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 14px 36px rgba(2,8,15,0.55)}
+.card img{width:100%;display:block}
+.card .card-body{padding:12px}
+.card .title{font-weight:700;margin-bottom:6px;color:var(--accent);word-break:break-word}
+.card .meta{color:var(--muted);font-size:13px}
+
+/* make entire card act like a link */
+.card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.card-link .title { color: var(--accent); }
+.card-link:hover { transform: translateY(-6px); box-shadow: 0 14px 36px rgba(2,8,15,0.55); }
+.card-link img { display:block; }
+/* ensure nested text links (if any) inherit color */
+.card-link a { color: inherit; text-decoration: none; }
+
+/* Friend / Game image sizing */
+.friend-card img{width:100%;height:140px;object-fit:cover;border-bottom:1px solid rgba(255,255,255,0.02)}
+.game-card img{width:100%;height:150px;object-fit:cover;border-radius:0 0 10px 10px}
+
+/* Generic button */
+.btn{
+  display:inline-block;
+  text-decoration:none;
+  color:var(--text);
+  padding:10px 18px;
+  border-radius:6px;
+  font-weight:700;
+  box-shadow: 0 6px 18px rgba(2,8,15,0.4);
+  transition:transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Primary (green) sign-in button to match pasted image */
+.btn-primary{
+  background: linear-gradient(180deg,#66c000,#4ea200);
+  color: #071217;
+  border: 1px solid rgba(0,0,0,0.25);
+  text-shadow: 0 1px 0 rgba(255,255,255,0.02);
+  box-shadow: 0 8px 18px rgba(46,102,0,0.18), inset 0 -2px 0 rgba(255,255,255,0.03);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(46,102,0,0.22)}
+.btn-primary:active{transform:translateY(0);box-shadow:0 6px 14px rgba(46,102,0,0.18)}
+
+/* Sign-in panel (separate from .hero) */
+.signin{
+  max-width:400px;
+  width:100%;
+  margin:48px auto;
+  justify-content:space-between;
+  display:block;
+  text-align:center;
+  background: var(--panel);
+  border-radius:12px;
+  padding:28px;
+  box-shadow: 0 12px 40px rgba(2,8,15,0.45);
+}
+.signin h1{
+  margin:0 0 12px;
+  color:var(--text);
+  font-size:2rem;
+}
+.signin .btn{ margin-top:10px; }
+
+/* When user is not signed in (no header), show only the .signin panel */
+body:not(.has-header) .content {
+  /* keep container visible (so layout stays consistent) but hide all internal blocks except .signin */
+  background: transparent;
+  box-shadow: none;
+}
+body:not(.has-header) .content > :not(.signin) {
+  display: none !important;
+}
+/* ensure signin stays centered and visible */
+body:not(.has-header) .signin {
+  margin: 48px auto;
+  display: block;
+}
+
+/* ensure hero button spacing on small screens */
+@media (max-width: 600px){
+  .hero{padding:18px}
+  .btn{padding:10px 14px;font-size:0.95rem}
+}
+/* adjust for smaller screens where header is shorter */
+@media (max-width: 900px) {
+  .container{ padding-top: calc(16px + 56px); }
+  .header{ padding:10px 14px; }
+}
+@media (max-width: 420px) {
+  .container{ padding-top: calc(12px + 56px); }
+  .header{ padding:8px 12px; }
+}
+
+/* responsive adjustments */
+@media (max-width: 700px) {
+  .profile-header{ align-items:flex-start; }
+  .profile-header .visibility{ margin-left:0; } /* not needed but harmless */
+  .profile-header .avatar{ width:76px; height:76px; }
+  .profile-header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .profile-stats{
+    width:100%;
+    margin-left:0;
+    gap:12px;
+    margin-top:10px;
+  }
+  .profile-stats .stat{ flex:0 0 auto; padding:8px 12px; }
+}
+
+/* only apply when header exists */
+.has-header section[id],
+.has-header .signin,
+.has-header .content > section {
+  scroll-margin-top: var(--header-offset);
+}

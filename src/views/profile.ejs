@@ -1,0 +1,28 @@
+<section class="profile-header">
+  <a class="profile-link" href="<%= me.profileurl %>" target="_blank" rel="noopener noreferrer">
+    <img class="avatar" src="<%= me.avatarfull %>" alt="<%= me.personaname %>'s avatar" />
+    <div>
+      <h2><%= me.personaname %></h2>
+      <p class="muted">View on Steam</p>
+      <p class="visibility">Visibility: <%= me.communityvisibilitystate === 3 ? 'Public' : 'Private' %></p>
+    </div>
+  </a>
+
+  <!-- profile stats: games & friends -->
+  <div class="profile-stats" aria-hidden="false">
+    <a class="stat" href="#recentGames" title="Owned games">
+      <div class="count"><%= (games || []).length %></div>
+      <div class="label">Games</div>
+    </a>
+    <a class="stat" href="#friends" title="Friends list">
+      <div class="count"><%= (friends || []).length %></div>
+      <div class="label">Friends</div>
+    </a>
+  </div>
+</section>
+
+<!-- Friends section -->
+<%- include('partials/friends', { friends }) %>
+
+<!-- Owned games section -->
+<%- include('partials/games', { games }) %>

@@ -1,0 +1,19 @@
+<!-- src/views/partials/friends.ejs -->
+<section id="friends">
+  <h3>Friends</h3>
+  <div class="grid grid-friends">
+    <% friends.forEach(friend => { %>
+      <a class="card friend-card card-link" href="<%= friend.profileurl %>" target="_blank" rel="noopener noreferrer">
+        <img src="<%= friend.avatar && (/^https?:\/\//i).test(friend.avatar) ? friend.avatar : '' %>" alt="<%= friend.persona || 'User' %>" />
+        <div class="card-body">
+          <div class="title"><%= friend.persona %></div>
+          <div class="meta">
+            <% if (friend.friend_since) { %>
+              Friends since <%= friend.friend_since.exact %> (<%= friend.friend_since.relative %>)
+            <% } %>
+          </div>
+        </div>
+      </a>
+    <% }) %>
+  </div>
+</section>
