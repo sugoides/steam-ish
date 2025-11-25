@@ -18,11 +18,11 @@ A small Express + EJS app that displays a Steam user profile, friends and games 
 
 1. Clone repository
 ```
-      git clone https://github.com/sugoides/steam-ish
+git clone https://github.com/sugoides/steam-ish
 ```
 2. Install dependencies
 ```
-      npm install
+npm install
 ```
 3. Create an `.env` file in the project root (example below)
 
