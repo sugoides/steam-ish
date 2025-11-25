@@ -27,9 +27,12 @@ STEAM_API_KEY=your_steam_api_key_here
 ## Run
 
 - Start the app:
-  - npm start
+```
+npm start
+```
 - (Optional) Development with auto-reload (if configured):
-  - npm run dev
-
-Open http://localhost:3000 in your browser.
+```
+npm run dev
+```
+- Open http://localhost:3000 in your browser.
 
