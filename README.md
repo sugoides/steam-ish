@@ -39,20 +39,3 @@ PORT=3000
 
 Open http://localhost:3000 in your browser.
 
-## Important files
-- src/routes/profile.js — profile route that fetches friends/games
-- src/views/layout.ejs — global layout and header partial rendered conditionally
-- src/views/partials/header.ejs — top navigation and user area
-- src/views/profile.ejs — profile page with `#friends` and `#games` sections
-- src/views/index.ejs — sign-in / landing page
-- public/css/steam.css — main styling and layout
-- public/js/scroll-offset.js — optional smooth scroll with header offset (if present)
-
-## Notes & customization
-- Fixed header offset: adjust `--header-offset` or container padding in `public/css/steam.css` to match header height so anchored links aren't hidden.
-- To hide the top nav on the sign-in page, the layout sets `body` without the `.has-header` class; header is rendered only when `user` exists.
-- Cards for friends/games are anchors (`.card.card-link`) and open Steam links in a new tab.
-
-## Troubleshooting
-- If anchors jump beneath the fixed header when navigating to `#friends` or `#games`, enable the CSS `scroll-margin-top` (already included) or include the optional `public/js/scroll-offset.js` script and import it in `src/views/layout.ejs`.
-- Clear browser cache after CSS changes.
