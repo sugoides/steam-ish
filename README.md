@@ -2,13 +2,6 @@
 
 A small Express + EJS app that displays a Steam user profile, friends and games using the Steam Web API. Includes a top navigation (Friends / Games), clickable cards linking to Steam, and a centered sign-in UI.
 
-## Features
-- Sign in with Steam (OpenID)
-- Profile view with avatar, link to Steam profile and visibility
-- Friends and owned games lists with clickable cards
-- Fixed top navigation with hash scrolling to sections
-- Responsive, themed UI (CSS in `public/css/steam.css`)
-
 ## Prerequisites
 - Node.js (14+ recommended)
 - npm
