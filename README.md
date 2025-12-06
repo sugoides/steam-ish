@@ -39,19 +39,19 @@ npm run dev
 - Open `http://localhost:3000` in your browser.
 
 ### Docker Compose
-1. Download the `docker-compose.yml` file from the repository
+1. Download the `compose.yml` file from the repository
 2. Ensure your `.env` file is configured (see Setup step 3)
 3. Start the application with Redis:
 ```
-docker-compose up -d
+docker compose up -d
 ```
 4. View logs:
 ```
-docker-compose logs -f steam-ish
+docker compose logs -f steam-ish
 ```
 5. Stop the application:
 ```
-docker-compose down
+docker compose down
 ```
 
 The app will be available at `http://localhost:3000` (or your configured `BASE_URL`).
