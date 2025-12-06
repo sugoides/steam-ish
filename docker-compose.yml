@@ -1,0 +1,16 @@
+
+services:
+  steam-ish:
+    image: sugoi13/steam-ish:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - SESSION_SECRET=${SESSION_SECRET}
+      - STEAM_API_KEY=${STEAM_API_KEY}
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - /home/DATA/AppData/steam-ish/app:/usr/src/app/
