@@ -52,4 +52,4 @@ app.use('/profile', profileRoutes);
 app.use((req, res) => res.status(404).render('index', { user: req.user }));
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Listening on http://localhost:${port}`));
+app.listen(port, () => console.log(`Listening on http://localhost:${port} - BASE_URL: ${process.env.BASE_URL}`));

@@ -17,3 +17,4 @@ services:
     volumes:
       - /home/DATA/AppData/steam-ish/logs:/usr/src/app/logs
     network_mode: bridge
+    container_name: steam-ish
