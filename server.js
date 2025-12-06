@@ -41,8 +41,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-  res.render('index', { user: req.user });
+app.get("/", (req, res) => {
+  if (req.user) {
+    // Auto-redirect logged-in users
+    return res.redirect("/profile/me");
+  }
+
+  // If not logged in, render sign-in page
+  res.render("signin", { user: null });
 });
 
 app.use('/auth', authRoutes);
