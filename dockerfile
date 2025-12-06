@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install dependencies using npm ci for deterministic builds
-RUN npm ci --only=production
+RUN npm ci
 
 # Copy the rest of your application's source code
 COPY . .
