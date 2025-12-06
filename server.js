@@ -48,7 +48,7 @@ app.get("/", (req, res) => {
   }
 
   // If not logged in, render sign-in page
-  res.render("signin", { user: null });
+  res.render("signin", { user: req.user });
 });
 
 app.use('/auth', authRoutes);
