@@ -27,5 +27,5 @@ jobs:
     - name: Build and Push Multi-Arch Docker Image
       run: |
         docker buildx build --platform linux/amd64,linux/arm64 \
-          -t ${{ secrets.DOCKER_USER }}/steam-ish:$(date +%s) \
+          -t ${{ secrets.DOCKER_USER }}/steam-ish:latest \
           --push .
