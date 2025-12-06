@@ -19,20 +19,37 @@ npm install
 ```
 3. Create an `.env` file in the project root (example below)
 ```
-PORT=3000
 SESSION_SECRET=change_this_secret
 STEAM_API_KEY=your_steam_api_key_here
 ```
 
 ## Run
 
+### Local Development
 - Start the app:
 ```
 npm start
 ```
-- (Optional) Development with auto-reload (if configured):
+- (Optional) Development with auto-reload:
 ```
 npm run dev
 ```
 - Open `http://localhost:3000` in your browser.
+
+### Docker Compose
+1. Ensure your `.env` file is configured (see Setup step 3)
+2. Start the application with Redis:
+```
+docker compose up -d
+```
+3. View logs:
+```
+docker compose logs -f steam-ish
+```
+4. Stop the application:
+```
+docker compose down
+```
+
+The
 
